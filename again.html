@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div>
+        <style class="text/css">
+            div{
+                background-color: aquamarine;
+                display: flex;
+                margin: 0px;
+            }
+            p {
+                padding: 5px;
+                width: fit-content;
+                height: fit-content;
+                background-color: red;
+            }
+            
+            p:hover {
+                cursor: pointer;
+            }
+            
+        </style>
+        <div>
+            <p ip="_34" onclick="changeColor(elemento)">Lolo</p>
+            <p id="elemento" onclick="changeColor(element)">klk</p>
+        </div>
+        <div onclick="changeColor(this)" style="background-color: red;">
+        Tap me to change my color!
+        </div>
+        <script>
+        // Definir la función que se activará al presionar la tecla específica
+            function activarFuncion(event) {
+                // Verificar si la tecla presionada es la tecla deseada (por ejemplo, la tecla "A")
+                if (event.key === 'a' || event.key === 'A') { // El código 65 corresponde a la tecla "A"
+                    // Coloca aquí el código que deseas que se ejecute cuando se presiona la tecla "A"
+                    window.alert('La tecla "A" ha sido presionada.');
+                    _34.style.backgroundColor = 'green';
+                }
+            }
+
+            // // Agregar un event listener al documento para escuchar los eventos de teclado
+            document.addEventListener('keydown', activarFuncion);
+
+            // // Definir la función que se activará al presionar la tecla específica
+            // function activarFuncion(event) {
+            //     // Verificar si la tecla presionada es la tecla deseada (por ejemplo, la tecla "A")
+            //     if (event.key === 'a' || event.key === 'A') {
+            //         // Coloca aquí el código que deseas que se ejecute cuando se presiona la tecla "A"
+            //         window.alert('La tecla "A" ha sido presionada.');
+            //     }
+            // }
+
+            // // Agregar un event listener al documento para escuchar los eventos de teclado
+            // document.addEventListener('keydown', activarFuncion);
+            // function changeColor(elemento) {
+            //     const pulsa = elemento.style.backgroundColor;
+            //         if (pulsa == "red"){
+
+            //         }
+            //         else {
+                        
+            //         }
+            // }
+            
+
+    
+        function changeColor(element) {
+        const currentColor = element.style.backgroundColor;
+        if (currentColor == "red") {
+            element.style.backgroundColor = "green";
+        } else {
+            element.style.backgroundColor = "red"; 
+        }
+        }
+    </script>
+            
+            
+    </div>
+</body>
+</html>

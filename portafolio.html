@@ -1,0 +1,617 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+    <style>
+
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #555;
+
+}
+
+.centro{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.medio {
+    transition: background-color 0.3s ease; /* Transición suave */
+    position: fixed;
+    top: 10px;
+    z-index: 1000;
+    width: 100%;
+    width: fit-content;
+}
+
+.medio ul {
+    width: fit-content;
+    list-style: none;
+    margin: 0px;
+    padding: 10px ;
+    text-align: center;
+    background-color: rgba(0, 0, 0, 0);
+}
+
+.medio ul li {
+    display: inline;
+    margin: 0 10px;
+}
+
+.medio ul li a {
+    text-decoration: none;
+    color: black;
+    font-weight: bold;
+}
+
+.sticky {
+    background-color: rgba(0, 0, 0, 0.5); /* Opacidad 50% al desplazar hacia abajo */
+}
+
+.stickys {
+    background-color: rgba(202, 20, 20, 0.5); /* Opacidad 50% al desplazar hacia abajo */
+}
+/* .medio {
+    position: fixed;
+            top: 0;
+            width: 100%;
+            background-color: rgba(0, 0, 0, 0); Transparente inicialmente
+            transition: background-color 0.3s ease; Transición suave
+            z-index: 1000;
+            justify-content: center;
+            display: flex;
+}
+
+.medio ul {
+    position: absolute;
+    background-color: rgba(65, 105, 225, 0.5); Establece una opacidad del 50% al color
+    border-radius: 50px;
+    padding: 5px 25px;
+    display: flex;
+    list-style: none;
+    text-decoration: none;
+    font-size: 15px;
+    justify-content: space-between;
+}
+
+.medio ul li {
+    margin: 3px;
+    padding: 10px;
+    background-color: rgba(30, 193, 243, 0.5);
+    border-radius: 30px;
+    margin: 0;
+    margin-right: 20px;
+    display: inline;
+}.5s ease
+
+.medio li:last-child {
+    margin-right: 0px;
+}
+
+.medio ul li a {
+    color: whitesmoke;
+    text-decoration: none;
+} */
+
+
+.centro {
+
+    margin: 0;
+    background-color: brown;
+}
+/* \/ Inicio de MENU-INICIO \/ */
+
+nav {
+    background-color: brown;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 10px;
+    box-shadow: 0px 5px 0px #dedede;
+    text-transform: uppercase;
+    font-size: 20px;
+}
+
+.logo h1 {
+    margin: 0;
+    padding: 0;
+    color: white;
+    font-size: 24px;
+    padding: 10px;
+    margin-left: 20px;
+    transition: transform 0.5s; /* Añadido */
+}
+
+.logo a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+}
+
+.logo a:hover h1 {
+    transform: scale(1.1); /* Cambiado */
+}
+
+.menu {
+    list-style: none;
+    margin: 0;
+    padding: 20px;
+    display: flex;
+}
+
+.menu li {
+    margin-right: 30px;
+}
+
+.menu li:last-child {
+    margin-right: 0;
+}
+
+.menu li a {
+    text-decoration: none;
+    color: white;
+    /* font-weight: bold; */
+    transition: color 0.3s ease;
+}
+
+.menu li a:hover {
+    color: #555;
+}
+
+/* \/ Inicio de Linea baja \/ */
+
+.menu li a {
+    position: relative;
+}
+
+.menu li a:after {
+    content: '';
+    position: absolute;
+    left: 0;
+    bottom: -3px;
+    width: 0;
+    height: 2px;
+    background-color: grey;
+    transition: width 0.5s;
+}
+
+.menu li a:hover:after {
+    width: 100%;
+}
+/* /\ Fin de la linea baja /\ */
+/* /\ Fin de MENU-FINAL /\*/
+
+.container {
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.section {
+    margin-bottom: 300px; /* Añadimos espacio entre las secciones para el desplazamiento */
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.6s ease, transform 0.6s ease;
+}
+
+.section:not(.hidden) {
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.buttons{
+    align-content: bottom;
+    position: absolute;
+    align-content: right;
+    bottom: 0;
+    display: flex;
+    background-color: #023f1c;
+}
+
+.button {
+    height: 40px;
+    margin: 5px;
+    background-color: purple;
+    color: palevioletred;
+    border-radius: 10px;
+    transition: 0.2s;
+    padding: 0px 12px;
+    display: flex;
+    align-items: center;
+}
+
+.button:hover {
+    transform: translateY(-5px);
+    background-color: palevioletred;
+    /* color: var(--clr-light); */ 
+    color: pink;
+}
+
+.presentation {
+    display: flex;
+    justify-content: space-between;
+    border-radius: 25px;
+    background-color: cornflowerblue;   
+    padding: 30px 50px;
+}
+
+.presentation h1 {
+    color: white;
+    font-size: 50px;
+    padding-left: 20px;
+}
+
+.presentation-left{
+    display: block;
+    width: 600px;
+    background-color: blueviolet;
+    position: relative;
+}
+
+.presentation-right {
+    background-color: red;
+    justify-content: center;
+    width: 450px; /* Define un ancho de 200 píxeles */
+    height: auto; /* Permite que la altura se ajuste automáticamente para mantener la proporción de la imagen */
+}
+
+
+.servicios {
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+    /* min-height: 200px; Lo quito porque quiero q se adapte la altura al contenedor, una vez ya tebga la altura definida, si con el padding no queda bien (estetica y responsives) lo cambiaré*/
+    /* padding: 40px; */
+	display: flex;
+    min-height: 400px;
+    align-items: center;
+}
+
+.contenedor {
+	max-width: 1200px;
+	width: 90%;
+	margin: auto;
+
+}
+
+/* --- --- CAROUSEL --- --- */
+.carousel__contenedor {
+	position: relative;
+}
+
+.carousel__anterior,
+.carousel__siguiente {
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: none;
+	top: calc(50% - 35px);
+	cursor: pointer;
+	line-height: 30px;
+	text-align: center;
+	background: none;
+	color: #fff;
+	opacity: 20%;
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover {
+	opacity: 100%;
+}
+
+.carousel__anterior {
+	left: -30px;
+}
+
+.carousel__siguiente {
+	right: -30px;
+}
+
+.carousel__lista {
+	overflow: hidden;
+}
+
+.carousel__elemento {
+	text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s;
+}
+
+.carousel__elemento:hover {
+	transform: scale(1.1);
+}
+
+.carousel__indicadores .glider-dot {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background: #fff;
+	opacity: .2;
+	border-radius: 0;
+}
+
+.carousel__indicadores .glider-dot:hover {
+	opacity: .5;
+}
+
+.carousel__indicadores .glider-dot.active {
+	opacity: 1;
+}
+
+.relleno {
+	border-radius: 30px;
+	box-shadow: black solid 10px;
+    height: 400px;
+    width: 400px;
+    background-color: #023f1c;
+	border: black solid 5px;
+    margin: 55px;
+}
+
+.relleno h1, 
+.relleno p{
+	background-color: rgb(221, 21, 194);
+	padding:20px;
+}
+
+.relleno p{
+	text-align: justify;
+}
+    </style>
+</head>
+<body>
+    <div class="centro">
+        <div class="medio" id="sticky-menu">
+            <ul class="navegacion">
+                <li><a href="#">Home</a></li>
+                <li><a href="#">About</a></li>
+                <li><a href="#">Services</a></li>
+                <li><a href="#">Contact</a></li>
+            </ul>
+        </div>
+    </div>    
+    <nav>
+        <div class="logo">
+            <a href=""><h1>Logo</h1></a>
+        </div>
+        <ul class="menu">
+            <li><a href="#">About</a></li>
+            <li><a href="#">Mission</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Contact</a></li>
+        </ul>
+    </nav>
+    
+    <div class="container">
+        <div class="section hidden">
+                <div class="presentation">
+                    <div class="presentation-left">
+                        <h1>Hi. I'm Alberto</h1>
+                        <h1>A Frontend Devoloper</h1>
+                        <h2>Frontend Devoloper</h2>
+                        <p>Lorem ipsum, dolor sit amet consectetur adipisicing elit. Eius quam deleniti voluptas ut veniam quasi.</p>
+                        <div class="buttons">
+                            <div class="button">Github</div>
+                            <div class="button">Linkedin</div>
+                            <div class="button">Twitter</div>
+                        </div>
+                    </div>
+                    <div class="presentation-right">
+                        <img src="/Archivos/Codigos/assets/imgs/Abuela.png" alt="Profile picture"/>
+                    </div>
+                    
+                </div>
+            <h2>Section 1</h2>
+            <p>Contenido de la sección 1</p>
+        </div>
+        <div class="section hidden">
+            <h2>Section 2</h2>
+            <p>Contenido de la sección 2</p>
+            <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Ipsa, quaerat! Sit, eligendi? Beatae sapiente iste sint 
+                mollitia quaerat ducimus accusantium modi ipsum. Itaque eligendi officiis quod rerum! Molestiae, expedita aut.</p>
+        </div>
+        <div class="section hidden">
+            <h2>Section 3</h2>
+            <p>Contenido de la sección 3</p>
+            <div class="servicios">
+                <div class="contenedor">
+        
+                    <div class="carousel">
+                        <div class="carousel__contenedor">
+                            <button aria-label="Anterior" class="carousel__anterior">
+                                <i class="fas fa-chevron-left"></i>
+                            </button>
+        
+                            <div class="carousel__lista">
+                                <div class="carousel__elemento">
+                                    
+                                    <!-- <img src="/Archivos/Codigos/assets/imgs/Abuela.png" alt="Rock and Roll Hall of Fame"> -->
+                                    <div class="relleno">
+                                        <h1>Graphic Design</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno">
+                                        <h1>Web Devolopment</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno">
+                                        <h1>Content Writing</h1>
+                                        <p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+                                    </div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno"></div>
+                                </div>
+                
+                                <div class="carousel__elemento">
+                                    <div class="relleno"></div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno"></div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno"></div>
+                                </div>
+                                <div class="carousel__elemento">
+                                    <div class="relleno"></div>
+                                </div>
+                            </div>
+        
+                            <button aria-label="Siguiente" class="carousel__siguiente">
+                                <i class="fas fa-chevron-right"></i>
+                            </button>
+                        </div>
+        
+                        <div role="tablist" class="carousel__indicadores"></div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+
+	<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+        const sections = document.querySelectorAll(".section");
+
+        function revealSections() {
+            sections.forEach(section => {
+                const sectionTop = section.getBoundingClientRect().top;
+                const windowHeight = window.innerHeight;
+
+                if (sectionTop < windowHeight * 0.85) {
+                    // Este numero lo q hace es decir en q porcentaje de la pantalla aprezca
+                    section.classList.remove("hidden");
+                } else {
+                    section.classList.add("hidden");
+                }
+            });
+        }
+
+        window.addEventListener("scroll", revealSections);
+        revealSections(); // Para mostrar las secciones inicialmente
+    });
+    window.addEventListener('load', function(){
+            new Glider(document.querySelector('.carousel__lista'), {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: '.carousel__indicadores',
+                arrows: {
+                    prev: '.carousel__anterior',
+                    next: '.carousel__siguiente'
+                },
+                responsive: [
+                    {
+                    // screens greater than >= 775px
+                    breakpoint: 100,
+                    settings: {
+                        // Set to `auto` and provide item width to adjust to viewport
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    },{
+                    // screens greater than >= 1024px
+                    breakpoint: 1100,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                    }
+                ]
+            });
+        });
+    
+            // Función para ajustar la altura del div al tamaño de la ventana gráfica
+    function ajustarAlturaDiv() {
+        var div = document.querySelector('.presentation');
+        var windowHeight = window.innerHeight;
+        var alturaMenu = 200; // Altura del menú en píxeles
+
+        // Restar la altura del menú al tamaño de la ventana gráfica
+        div.style.height = (windowHeight - alturaMenu) + 'px';
+    }
+
+    // Llama a la función al cargar la página y al cambiar el tamaño de la ventana
+    window.onload = ajustarAlturaDiv;
+    window.onresize = ajustarAlturaDiv;
+
+
+
+    window.addEventListener('scroll', function() {
+            const medio = document.querySelector('.medio');
+            const navegacion = document.querySelector('.navegacion');
+            const scrollTop = window.scrollY;
+
+            if (scrollTop === 0) {
+                medio.classList.remove('sticky');
+                navegacion.classList.remove('stickys'); // Si está en la parte superior, elimina la clase 'sticky'
+            } else {
+                medio.classList.add('sticky');
+                navegacion.classList.add('stickys'); // Si se desplaza hacia abajo, agrega la clase 'sticky'
+            }
+        });
+    </script>
+</body>
+</html>
+<!-- .container { cx 
+    width: 90%;
+    margin: 0 auto;
+    padding: 40px 0;
+}
+
+.presentation {
+    display: flex;
+    align-items: flex-start;
+}
+
+.presentation-left {
+    flex: 1;
+    padding-right: 20px;
+    max-width: 50%;
+}
+
+.presentation-right {
+    flex: 1;
+    max-width: 50%;
+}
+
+.presentation h1 {
+    font-size: 40px;
+}
+
+.presentation p {
+    margin-top: 20px;
+    font-size: 18px;
+}
+
+.presentation img {
+    max-width: 100%;
+    height: auto;
+    margin-top: 20px;
+}
+
+@media screen and (max-width: 768px) {
+    .presentation {
+        flex-direction: column;
+    }
+
+    .presentation-left, .presentation-right {
+        max-width: 100%;
+    }
+} -->

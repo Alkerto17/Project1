@@ -1,0 +1,327 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Carrusel Simple</title>
+    <link rel="stylesheet" href="styles.css">
+    <style>
+
+.servicios {
+	background: red;
+	color: #fff;
+	font-family: 'Montserrat', sans-serif;
+    /* min-height: 200px; Lo quito porque quiero q se adapte la altura al contenedor, una vez ya tebga la altura definida, si con el padding no queda bien (estetica y responsives) lo cambiaré*/
+    /* padding: 40px; */
+	display: flex;
+    align-items: center;
+	height: 600px;
+}
+
+.contenedor {
+	max-width: 1200px;
+	width: 90%;
+	margin: auto;
+	background-color: burlywood;
+	/* padding-top: 15px; */
+}
+
+/* --- --- CAROUSEL --- --- */
+.carousel__contenedor {
+	position: relative;
+}
+
+.carousel__anterior,
+.carousel__siguiente {
+	position: absolute;
+	display: block;
+	width: 30px;
+	height: 30px;
+	border: none;
+	top: calc(50% - 35px);
+	cursor: pointer;
+	line-height: 30px;
+	text-align: center;
+	background: none;
+	color: #fff;
+	opacity: 20%;
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover {
+	opacity: 100%;
+}
+
+.carousel__anterior {
+	left: -30px;
+}
+
+.carousel__siguiente {
+	right: -30px;
+}
+
+.carousel__lista {
+	overflow: hidden;
+}
+
+.carousel__elemento {
+	text-align: center;
+    display: grid;
+    justify-content: center;
+    align-items: center;
+    transition: transform .5s;
+}
+
+.carousel__elemento:hover {
+	transform: scale(1.1);
+}
+
+
+.carousel__indicadores .glider-dot {
+	display: block;
+	width: 30px;
+	height: 4px;
+	background: #fff;
+	opacity: .2;
+	border-radius: 0;
+}
+
+.carousel__indicadores .glider-dot:hover {
+	opacity: .5;
+}
+
+.carousel__indicadores .glider-dot.active {
+	opacity: 1;
+}
+
+/* Estilos del carrusel */
+.carousel__contenedor {
+    position: relative;
+    overflow: hidden;
+    margin-bottom: 20px; /* Agregado */
+}
+
+.carousel__lista {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+
+.carousel__elemento {
+    flex: 0 0 auto;
+    margin-right: 20px; /* Ajusta según desees */
+    text-align: center;
+}
+
+.carousel__elemento:last-child {
+    margin-right: 0;
+}
+
+.carousel__elemento img {
+    max-width: 100%;
+    height: auto;
+    border-radius: 5px; /* Agregado para bordes redondeados */
+    transition: transform 0.3s; /* Agregado para efecto de transformación */
+}
+
+.carousel__elemento:hover img {
+    transform: scale(1.1); /* Agregado para efecto de aumento en hover */
+}
+
+/* Botones de navegación */
+.carousel__anterior,
+.carousel__siguiente {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    width: 30px;
+    height: 30px;
+    background: none;
+    border: none;
+    color: white;
+    cursor: pointer;
+    opacity: 0.7;
+    z-index: 1; /* Agregado para que estén sobre las imágenes */
+    transition: opacity 0.3s; /* Agregado para suavizar transición */
+}
+
+.carousel__anterior:hover,
+.carousel__siguiente:hover {
+    opacity: 1;
+}
+
+.carousel__anterior {
+    left: 10px;
+}
+
+.carousel__siguiente {
+    right: 10px;
+}
+
+/* Indicadores de carrusel */
+.carousel__indicadores {
+    text-align: center;
+    margin-top: 10px; /* Ajusta según desees */
+}
+
+.carousel__indicadores .glider-dot {
+    display: inline-block;
+    width: 8px;
+    height: 8px;
+    background-color: #ccc;
+    border-radius: 50%;
+    margin: 0 5px; /* Ajusta según desees */
+    cursor: pointer;
+    transition: background-color 0.3s; /* Agregado para suavizar transición */
+}
+
+.carousel__indicadores .glider-dot.active {
+    background-color: #555;
+}
+
+.relleno {
+	border-radius: 30px;
+	box-shadow: black solid 10px;
+    height: 400px;
+    width: 400px;
+    background-color: #023f1c;
+	border: #555 solid 6px;
+	margin: 55px;
+}
+
+.relleno h1, 
+.relleno p{
+	background-color: rgb(221, 21, 194);
+	padding:20px;
+}
+
+.relleno p{
+	text-align: justify;
+}
+
+    </style>
+</head>
+<body>
+    <!DOCTYPE html>
+<html lang="en">
+<head>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0">
+	<title>Carousel / Slider con Glider.js</title>
+	<link href="https://fonts.googleapis.com/css2?family=Montserrat&family=Open+Sans&display=swap" rel="stylesheet"> 
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css@8.0.1/normalize.min.css">
+	<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body>
+	<div class="servicios">
+		<div class="contenedor">
+			<div class="carousel">
+				<div class="carousel__contenedor">
+					<button aria-label="Anterior" class="carousel__anterior">
+						<i class="fas fa-chevron-left"></i>
+					</button>
+
+					<div class="carousel__lista">
+						<div class="carousel__elemento">
+                            
+							<!-- <img src="/Archivos/Codigos/assets/imgs/Abuela.png" alt="Rock and Roll Hall of Fame"> -->
+                            <div class="relleno">
+								<h1>Graphic Design</h1>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+							</div>
+							<p>Rock and Roll Hall of Fame</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/3.png" alt="Constitution Square - Tower I">
+                            <div class="relleno">
+								<h1>Web Devolopment</h1>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+							</div>
+							<p>Constitution Square - Tower I</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/4.png" alt="Empire State Building">
+                            <div class="relleno">
+								<h1>Content Writing</h1>
+								<p>Lorem ipsum dolor sit amet consectetur adipisicing elit. Numquam consectetur fugiat quam, eius itaque quis laborum at ab ipsa possimus.</p>
+							</div>
+							<p>Empire State Building</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/5.png" alt="Harmony Tower">
+                            <div class="relleno"></div>
+							<p>Harmony Tower</p>
+						</div>
+		
+						<div class="carousel__elemento">
+							<img src="img/6.png" alt="Empire State Building">
+                            <div class="relleno"></div>
+							<p>Empire State Building</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/7.png" alt="Harmony Tower">
+                            <div class="relleno"></div>
+							<p>Harmony Tower</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/8.png" alt="Empire State Building">
+                            <div class="relleno"></div>
+							<p>Empire State Building</p>
+						</div>
+						<div class="carousel__elemento">
+							<img src="img/9.png" alt="Harmony Tower">
+                            <div class="relleno"></div>
+							<p>Harmony Tower</p>
+						</div>
+					</div>
+
+					<button aria-label="Siguiente" class="carousel__siguiente">
+						<i class="fas fa-chevron-right"></i>
+					</button>
+				</div>
+
+				<div role="tablist" class="carousel__indicadores"></div>
+			</div>
+		</div>
+	</div>
+
+	<script src="https://cdn.jsdelivr.net/npm/glider-js@1.7.3/glider.min.js"></script>
+	<script src="https://kit.fontawesome.com/2c36e9b7b1.js" crossorigin="anonymous"></script>
+	<script src="js/app.js"></script>
+</body>
+</html>
+
+    <script>
+        window.addEventListener('load', function(){
+            new Glider(document.querySelector('.carousel__lista'), {
+                slidesToShow: 1,
+                slidesToScroll: 1,
+                dots: '.carousel__indicadores',
+                arrows: {
+                    prev: '.carousel__anterior',
+                    next: '.carousel__siguiente'
+                },
+                responsive: [
+                    {
+                    // screens greater than >= 775px
+                    breakpoint: 450,
+                    settings: {
+                        // Set to `auto` and provide item width to adjust to viewport
+                        slidesToShow: 1,
+                        slidesToScroll: 1
+                    }
+                    },{
+                    // screens greater than >= 1024px
+                    breakpoint: 800,
+                    settings: {
+                        slidesToShow: 2,
+                        slidesToScroll: 2
+                    }
+                    }
+                ]
+            });
+        });
+    </script>
+</body>
+</html>

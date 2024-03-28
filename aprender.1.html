@@ -1,0 +1,245 @@
+<!DOCTYPE html>
+<html lang="en">
+    <link rel="stylesheet" href="assets/css/aprender.1.css">
+    <style>
+        #myBox {
+            width: 200px;
+            height: 200px;
+            display: flex;
+            background-color: aquamarine;
+            position: relative;
+            justify-content: center;
+            align-items: center;
+        }
+
+        .union{
+            display: flex;
+            background-color: aqua;
+            width: fit-content;
+            
+        }
+
+        .union, div{
+            padding: 5px;
+            background-color: orange;
+            margin: 9px;
+        }
+
+        #pag1{
+            padding: 3px;
+            background-color: gray;
+            width: 10px;
+            height: 10px;
+        }
+
+        #pag2{
+            padding: 3px;
+            background-color: gainsboro;
+            width: 10px;
+            height: 10px;
+        }
+
+        #pag3{
+            padding: 3px;
+            background-color: gainsboro;
+            width: 10px;
+            height: 10px;
+        }
+
+        button{
+            background-color: red;
+        }
+
+        body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: brown
+}
+
+/* NAVEGACIÓN */
+nav {
+    /*Este width es para  que el menu se adapte a la ventana del navegador*/
+    width: 100%;
+    margin: 0 auto;
+    background: #fff;
+    /*Este padding es para cambiar el que hay dentro del menu*/
+    padding: 5px ;
+    box-shadow: 0px 5px 0px #dedede;
+    display: flex;
+    justify-content: space-between;
+    background-color: aquamarine;
+    text-transform: uppercase;
+    font-weight: 800;
+}
+
+h1{
+    padding: 5px;
+    align-items: center;
+    width: fit-content;
+    /* el display grid hace que el texto se alinee en el centro de manera vertical */
+    display: grid;
+    margin-left: 50px;
+
+    font-weight: 800;
+}
+
+nav ul {
+    list-style: none;
+    /* Esto cambia el lado en el que está situado  el texto de los elementos del menú, por defecto es al centro */
+
+}
+nav ul li {
+    display: inline-block;
+}
+nav ul li a {
+    display: block;
+    /*Este padding es para el espacio que hay dentro de los bloques del menu*/
+    padding: 15px;
+    text-decoration: none;
+    color: #aaa;
+    /*Este margin es para la separacion de los bloques del menu*/
+    margin: 0 10px;
+}
+nav ul li a,
+nav ul li a:after,
+nav ul li a:before {
+    transition: all .5s;
+}
+nav ul li a:hover {
+    color: #555;
+}    
+
+/* stroke */
+nav.stroke ul li a,
+nav.fill ul li a {
+    position: relative;
+}
+nav.stroke ul li a:after,
+nav.fill ul li a:after {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto;
+    width: 0%;
+    content: '.';
+    color: transparent;
+    background: #333;
+    height: 1px;
+}
+nav.stroke ul li a:hover:after {
+    width: 100%;
+}
+
+nav.fill ul li a {
+    transition: all 2s;
+}
+
+nav.fill ul li a:after {
+    text-align: left;
+    content: '.';
+    margin: 0;
+    opacity: 0;
+}
+nav.fill ul li a:hover {
+    color: #023f1c;
+    z-index: 1;
+}
+nav.fill ul li a:hover:after {
+    z-index: -10;
+    animation: fill 1s forwards;
+    -webkit-animation: fill 1s forwards;
+    -moz-animation: fill 1s forwards;
+    opacity: 1; 
+}
+
+    </style>
+<body>
+    <nav class="stroke">
+        <h1>Logo</h1>
+        <ul>
+            
+            <li><a href="#">Home</a></li>
+            <li><a href="#">About</a></li>
+            <li><a href="#">Downloads</a></li>
+            <li><a href="#">More</a></li>
+            <li><a href="#">Nice staff</a></li>
+        </ul>
+    </nav>
+    <div id="myBox">
+    </div>
+    <div class="union">
+        <div id="pag1"></div>
+        <div id="pag2"></div>
+        <div id="pag3"></div>
+    </div>
+    <button id="elemento onclick="changeColor(elemento)">Click me!</button>
+    <script>   
+    
+    function changeColor(elemento) {
+        const currentColor = elemento.style.backgroundColor;
+        if (currentColor == "red") {
+            elemento.style.backgroundColor = "green";
+        }
+    }
+    
+
+
+
+        // eventListener = Listen for specific events to create interactive web pages
+//                            events: keydown, keyup
+//                            document.addEventListener(event, callback);
+
+const myBox = document.getElementById("myBox");
+const moveAmount = 10;
+let x = 0;
+let y = 0;
+
+document.addEventListener("keydown", event => {
+    myBox.textContent = "😲";
+    myBox.style.backgroundColor = "tomato";
+});
+
+document.addEventListener("keyup", event => {
+    myBox.textContent = "😀";
+    myBox.style.backgroundColor = "lightblue";
+});
+
+document.addEventListener("keydown", event => {
+
+    if(event.key.startsWith("Arrow")){
+
+        event.preventDefault();
+
+        switch(event.key){
+            case "ArrowUp":
+                y -= moveAmount;
+                break;
+            case "ArrowDown":
+                y += moveAmount;
+                break;
+            case "ArrowLeft":
+                x -= moveAmount;
+                break;
+            case "ArrowRight":
+                x += moveAmount;
+                break;
+        }
+
+        myBox.style.top = `${y}px`;
+        myBox.style.left = `${x}px`;
+    }
+});
+    </script>
+</body>
+<!-- const myBox = document.getElementById("myBox");
+
+        document.addEventListener("keydown", event => {
+            myBox.style.backgroundColor = "red";
+        });
+
+        document.addEventListener("keyup", event => {
+            myBox.style.backgroundColor = "blue"; 
+        }); -->
+</html>
